@@ -1,9 +1,85 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="25.0.3">
-  <diagram name="Page-1" id="CrufUgxki1sh6Ol0_T6o">
-    <mxGraphModel>
+<mxfile host="app.diagrams.net">
+  <diagram name="BPMN_Achat_Billet" id="AchatBilletProcess">
+    <mxGraphModel dx="1196" dy="704" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
-        <mxCell id="0" />
+        <mxCell id="0" parent="null" />
         <mxCell id="1" parent="0" />
+        
+        <!-- Start Event -->
+        <mxCell id="startEvent" value="Début de l'achat" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#90CAF9;strokeColor=#0D47A1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Task 1: Sélection concert -->
+        <mxCell id="selectConcert" value="Sélectionner concert et date" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="150" y="100" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Task 2: Choix sièges -->
+        <mxCell id="chooseSeat" value="Choisir siège et billet" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="350" y="100" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Task 3: Entrer paiement -->
+        <mxCell id="enterPayment" value="Entrer infos paiement" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="550" y="100" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Gateway: Paiement validé ? -->
+        <mxCell id="paymentGateway" value="Paiement validé ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FF6F00;" vertex="1" parent="1">
+          <mxGeometry x="750" y="115" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Task 4: Confirmation achat -->
+        <mxCell id="confirmPurchase" value="Confirmation et envoi billet" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="850" y="50" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- End Event: Achat réussi -->
+        <mxCell id="endEventSuccess" value="Achat réussi" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#A5D6A7;strokeColor=#1B5E20;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="65" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Task 5: Réessayer paiement -->
+        <mxCell id="retryPayment" value="Réessayer paiement" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;" vertex="1" parent="1">
+          <mxGeometry x="850" y="200" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Connecting Arrows -->
+        <mxCell id="arrow1" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="startEvent" target="selectConcert">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow2" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;" edge="1" parent="1" source="selectConcert" target="chooseSeat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow3" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;" edge="1" parent="1" source="chooseSeat" target="enterPayment">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow4" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;" edge="1" parent="1" source="enterPayment" target="paymentGateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Gateway Decision: Oui -->
+        <mxCell id="arrowYes" value="Oui" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;" edge="1" parent="1" source="paymentGateway" target="confirmPurchase">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Gateway Decision: Non -->
+        <mxCell id="arrowNo" value="Non" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;" edge="1" parent="1" source="paymentGateway" target="retryPayment">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrowRetry" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;" edge="1" parent="1" source="retryPayment" target="paymentGateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow5" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;" edge="1" parent="1" source="confirmPurchase" target="endEventSuccess">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
       </root>
     </mxGraphModel>
   </diagram>
