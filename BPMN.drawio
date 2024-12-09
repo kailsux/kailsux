@@ -1,5 +1,5 @@
 <mxfile host="app.diagrams.net">
-  <diagram name="BPMN_Achat_Billet" id="AchatBilletProcess">
+  <diagram name="BPMN_Achat_Billet_Detaille" id="AchatBilletDetaille">
     <mxGraphModel dx="1196" dy="704" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" parent="null" />
@@ -15,14 +15,44 @@
           <mxGeometry x="150" y="100" width="160" height="80" as="geometry" />
         </mxCell>
 
+        <!-- Sous-tâche : Choisir le concert -->
+        <mxCell id="subtaskChooseConcert" value="Choisir le concert" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FF6F00;" vertex="1" parent="1">
+          <mxGeometry x="150" y="200" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Sous-tâche : Choisir la date -->
+        <mxCell id="subtaskChooseDate" value="Choisir la date du concert" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FF6F00;" vertex="1" parent="1">
+          <mxGeometry x="150" y="280" width="160" height="60" as="geometry" />
+        </mxCell>
+
         <!-- Task 2: Choix sièges -->
         <mxCell id="chooseSeat" value="Choisir siège et billet" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;" vertex="1" parent="1">
           <mxGeometry x="350" y="100" width="160" height="80" as="geometry" />
         </mxCell>
 
+        <!-- Sous-tâche : Sélectionner le type de billet -->
+        <mxCell id="subtaskChooseTicketType" value="Sélectionner type de billet" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FF6F00;" vertex="1" parent="1">
+          <mxGeometry x="350" y="200" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Sous-tâche : Sélectionner le siège -->
+        <mxCell id="subtaskChooseSeatType" value="Sélectionner type de siège" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FF6F00;" vertex="1" parent="1">
+          <mxGeometry x="350" y="280" width="160" height="60" as="geometry" />
+        </mxCell>
+
         <!-- Task 3: Entrer paiement -->
         <mxCell id="enterPayment" value="Entrer infos paiement" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#2E7D32;" vertex="1" parent="1">
           <mxGeometry x="550" y="100" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Sous-tâche : Entrer coordonnées bancaires -->
+        <mxCell id="subtaskEnterCardInfo" value="Entrer coordonnées bancaires" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FF6F00;" vertex="1" parent="1">
+          <mxGeometry x="550" y="200" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Sous-tâche : Vérification des informations -->
+        <mxCell id="subtaskVerifyInfo" value="Vérifier les informations" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFECB3;strokeColor=#FF6F00;" vertex="1" parent="1">
+          <mxGeometry x="550" y="280" width="160" height="60" as="geometry" />
         </mxCell>
 
         <!-- Gateway: Paiement validé ? -->
@@ -74,13 +104,5 @@
 
         <mxCell id="arrowRetry" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;" edge="1" parent="1" source="retryPayment" target="paymentGateway">
           <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+        </
 
-        <mxCell id="arrow5" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;" edge="1" parent="1" source="confirmPurchase" target="endEventSuccess">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-      </root>
-    </mxGraphModel>
-  </diagram>
-</mxfile>
